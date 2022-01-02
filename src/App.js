@@ -1,8 +1,10 @@
-import "bulma/css/bulma.min.css";
 import { useState } from "react";
+import "bulma/css/bulma.min.css";
 import "./App.css";
+import "react-toastify/dist/ReactToastify.css";
 import AddConnection from "./components/AddConnection";
 import AddUser from "./components/AddUser";
+import Connections from "./components/Connections";
 import ShowConnection from "./components/ShowConnection";
 import UserList from "./components/UserList";
 
@@ -13,13 +15,19 @@ function App() {
 
   return (
     <div className="App container">
-      <AddUser
-        users={users}
-        setUsers={setUsers}
-        graph={graph}
-        setGraph={setGraph}
-      />
-      <UserList users={users} />
+      <div className="columns m-1 users">
+        <div className="col add-user-container">
+          <AddUser
+            users={users}
+            setUsers={setUsers}
+            graph={graph}
+            setGraph={setGraph}
+          />
+        </div>
+        <div className="col user-list-container box">
+          <UserList users={users} />
+        </div>
+      </div>
       <AddConnection users={users} graph={graph} setGraph={setGraph} />
       <ShowConnection
         users={users}
@@ -28,17 +36,7 @@ function App() {
         connection={connection}
         setConnection={setConnection}
       />
-      <div className="container">
-        {connection.map((c, index) => (
-          <div key={`connection-col-${index}`}>
-            {c.map((item, idx) => (
-              <span key={`connection-${idx}`}>
-                {idx === c.length - 1 ? `${item}` : `${item} > `}
-              </span>
-            ))}
-          </div>
-        ))}
-      </div>
+      <Connections connection={connection} />
     </div>
   );
 }

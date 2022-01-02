@@ -1,0 +1,30 @@
+.users {
+  margin-top: 5rem !important;
+  margin-left: 20rem !important;
+  margin-bottom: 5rem !important;
+}
+
+.add-user-container {
+  margin-top: 1rem !important;
+}
+
+.user-list-container {
+  margin-left: 5rem !important;
+  margin-top: 2rem !important;
+  padding: 5rem 13rem;
+}
+
+.add-connection {
+  margin-left: 18rem !important;
+  margin-bottom: 4rem !important;
+}
+
+.show-connection {
+  margin-left: 18rem !important;
+  margin-bottom: 5rem !important;
+}
+
+.connections {
+  margin-left: 18rem !important;
+  margin-bottom: 8rem !important;
+}

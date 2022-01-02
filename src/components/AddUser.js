@@ -17,7 +17,7 @@ function AddUser({ users, setUsers, setGraph, graph }) {
 
   return (
     <div className="add-user">
-      <h3 className="is-size-3">Add User</h3>
+      <h3 className="is-size-3 has-text-weight-bold">Add User</h3>
       <div className="field has-addons">
         <div className="control ">
           <input
@@ -29,7 +29,10 @@ function AddUser({ users, setUsers, setGraph, graph }) {
           />
         </div>
         <div className="control">
-          <button onClick={handleSubmit} className="button is-link">
+          <button
+            onClick={handleSubmit}
+            className="button is-link has-text-weight-bold"
+          >
             Add User
           </button>
         </div>

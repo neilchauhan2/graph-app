@@ -1,12 +1,6 @@
 import React, { useState } from "react";
 
-const ShowConnection = ({
-  users,
-  setGraph,
-  graph,
-  connection,
-  setConnection,
-}) => {
+const ShowConnection = ({ users, graph, setConnection }) => {
   const [firstUser, setFirstUser] = useState("");
   const [secondUser, setSecondUser] = useState("");
 
@@ -34,39 +28,55 @@ const ShowConnection = ({
   };
 
   return (
-    <div className="show-connection container columns">
-      <div className="column">
-        <div className="control">
-          <div className="select is-fullwidth">
-            <select
-              value={firstUser}
-              onChange={(e) => setFirstUser(e.target.value)}
-            >
-              {users.map((user, index) => (
-                <option key={`option-1-${index}`}>{user}</option>
-              ))}
-            </select>
+    <div className="show-connection">
+      <h3 className="is-size-3 has-text-weight-bold">Show Connection</h3>
+      <div className="columns">
+        <div className="column">
+          <div className="control">
+            <div className="select is-fullwidth">
+              <select
+                value={firstUser}
+                onChange={(e) => {
+                  if (e.target.value !== "--Select--") {
+                    setFirstUser(e.target.value);
+                  }
+                }}
+              >
+                <option>--Select--</option>
+                {users.map((user, index) => (
+                  <option key={`option-1-${index}`}>{user}</option>
+                ))}
+              </select>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="column">
-        <div className="control ">
-          <div className="select is-fullwidth">
-            <select
-              value={secondUser}
-              onChange={(e) => setSecondUser(e.target.value)}
-            >
-              {users.map((user, index) => (
-                <option key={`option-2-${index}`}>{user}</option>
-              ))}
-            </select>
+        <div className="column">
+          <div className="control ">
+            <div className="select is-fullwidth">
+              <select
+                value={secondUser}
+                onChange={(e) => {
+                  if (e.target.value !== "--Select--") {
+                    setSecondUser(e.target.value);
+                  }
+                }}
+              >
+                <option>--Select--</option>
+                {users.map((user, index) => (
+                  <option key={`option-2-${index}`}>{user}</option>
+                ))}
+              </select>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="column">
-        <button onClick={handleSubmit} className="button is-primary">
-          Show Connection
-        </button>
+        <div className="column">
+          <button
+            onClick={handleSubmit}
+            className="button is-primary has-text-weight-bold"
+          >
+            Show Connection
+          </button>
+        </div>
       </div>
     </div>
   );
